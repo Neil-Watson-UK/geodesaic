@@ -7,4 +7,7 @@ const base = process.env.BASE_PATH || '/';
 export default defineConfig({
   site: 'https://neil-watson-uk.github.io',
   base,
+  build: {
+    assets: 'assets',
+  },
 });

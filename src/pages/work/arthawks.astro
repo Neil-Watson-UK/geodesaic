@@ -1,0 +1,10 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import CaseStudyPage from "../../components/CaseStudyPage.astro";
+import { arthawks } from "../../data/arthawks";
+---
+<Base title="Art Hawks — geodesAic case study" description={arthawks.lede}>
+  <Header />
+  <CaseStudyPage study={arthawks} />
+</Base>

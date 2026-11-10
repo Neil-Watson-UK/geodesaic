@@ -1,0 +1,10 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import CaseStudyPage from "../../components/CaseStudyPage.astro";
+import { emailpos } from "../../data/emailpos";
+---
+<Base title="EmailPOS — geodesAic case study" description={emailpos.lede}>
+  <Header />
+  <CaseStudyPage study={emailpos} />
+</Base>

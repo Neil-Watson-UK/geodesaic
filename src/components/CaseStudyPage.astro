@@ -1,0 +1,230 @@
+---
+import type { WorkItem } from "../data/work";
+import Close from "./Close.astro";
+import { base } from "../base";
+
+const { study } = Astro.props as { study: WorkItem };
+---
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">
+        <a href={`${base}#work`}>Work</a>
+        <span>/</span>
+        Case study
+      </p>
+      <h1>
+        {study.name}.
+        <span>{study.headline}</span>
+      </h1>
+      <p class="lede">{study.lede}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href={study.url} rel="noreferrer">{study.urlLabel}</a>
+        <a class="btn btn-secondary" href={`${base}#strategy`}>Book a similar build</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="wrap grid">
+      <article>
+        <p class="label">{study.challenge.title}</p>
+        <h2>{study.challengeHeading}</h2>
+        <p>{study.challenge.body}</p>
+      </article>
+      <article>
+        <p class="label">{study.solution.title}</p>
+        <h2>{study.solutionHeading}</h2>
+        <p>{study.solution.body}</p>
+        <ol>
+          {study.flow.map((step) => (
+            <li>{step}</li>
+          ))}
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section class="frames">
+    <div class="wrap">
+      <p class="eyebrow">How it maps to geodesAic</p>
+      <h2>One product, three capabilities.</h2>
+      <div class="bento">
+        {study.frames.map((frame) => (
+          <article>
+            <p class="label">{frame.label}</p>
+            <h3>{frame.title}</h3>
+            <p>{frame.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="wrap pair">
+      <article>
+        <p class="label">The tech stack</p>
+        <h2>{study.stackHeading}</h2>
+        <p>{study.stackBody}</p>
+        <p class="chips">
+          {study.stack.map((item) => (
+            <span>{item}</span>
+          ))}
+        </p>
+      </article>
+      <article class="outcome">
+        <p class="label">{study.outcome.title}</p>
+        <h2>{study.outcomeHeading}</h2>
+        <p>{study.outcome.body}</p>
+      </article>
+    </div>
+  </section>
+
+  <Close />
+</main>
+
+<style>
+  .hero {
+    padding: 56px 0 12px;
+    text-align: center;
+  }
+
+  .eyebrow,
+  .label {
+    margin: 0;
+    color: var(--gem-deep);
+    font: 800 12px/1 var(--sans);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow a { text-decoration: none; }
+  .eyebrow span { margin: 0 8px; color: var(--ink-soft); }
+
+  h1 {
+    margin: 16px auto 0;
+    max-width: 18ch;
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.04em;
+  }
+
+  h1 span {
+    display: block;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gem-deep);
+  }
+
+  .lede {
+    margin: 20px auto 0;
+    max-width: 42rem;
+    color: var(--ink-soft);
+    font-size: 1.12rem;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .story,
+  .frames,
+  .meta {
+    padding: 48px 0 8px;
+  }
+
+  .grid,
+  .pair,
+  .bento {
+    display: grid;
+    gap: 16px;
+  }
+
+  .grid,
+  .pair { grid-template-columns: 1fr 1fr; }
+  .bento { grid-template-columns: repeat(3, 1fr); }
+
+  article {
+    padding: 28px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(13, 50, 68, 0.06);
+    box-shadow: var(--shadow);
+  }
+
+  h2 {
+    margin: 12px 0 0;
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+  }
+
+  article > p:not(.label):not(.chips) {
+    margin: 12px 0 0;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0;
+  }
+
+  ol li {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--mist);
+    font: 700 12px/1 var(--sans);
+  }
+
+  h3 {
+    margin: 12px 0 0;
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .chips span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: var(--mist);
+    font: 700 12px/1 var(--sans);
+  }
+
+  .outcome {
+    background: var(--ink);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .outcome .label { color: var(--gem-light); }
+  .outcome p:not(.label) { color: rgba(255, 255, 255, 0.88); }
+
+  @media (max-width: 860px) {
+    .grid,
+    .pair,
+    .bento { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+import Wordmark from "./Wordmark.astro";
+import { base } from "../base";
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <Wordmark />
+    <nav aria-label="Primary">
+      <a href={`${base}#capabilities`}>Capabilities</a>
+      <a href={`${base}#work`}>Work</a>
+      <a href={`${base}#strategy`}>Strategy</a>
+    </nav>
+    <a class="btn btn-navy header-cta" href={`${base}#strategy`}>Book session</a>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(16px);
+    background: rgba(246, 251, 251, 0.82);
+    border-bottom: 1px solid transparent;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 10px 0;
+  }
+
+  nav {
+    display: flex;
+    gap: 22px;
+    margin-left: 8px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--ink-soft);
+    font: 600 14px/1 var(--sans);
+  }
+
+  nav a:hover { color: var(--ink); }
+
+  .header-cta {
+    margin-left: auto;
+    min-height: 40px;
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+
+  @media (max-width: 720px) {
+    nav { display: none; }
+
+    .bar {
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  }
+</style>

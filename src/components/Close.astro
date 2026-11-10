@@ -1,0 +1,65 @@
+---
+import Wordmark from "./Wordmark.astro";
+---
+<section class="strategy" id="strategy">
+  <div class="wrap">
+    <div class="panel">
+      <h2>Book a strategy session</h2>
+      <p>
+        Tell us where growth is stalling. We will map the human decisions, the
+        automation opportunities, and a practical path to ship.
+      </p>
+      <a class="btn btn-primary" href="mailto:hello@geodesaic.com">Start the conversation</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap foot">
+    <Wordmark />
+    <p>Human strategy. AI speed.</p>
+  </div>
+</footer>
+
+<style>
+  .strategy { padding: 48px 0 32px; scroll-margin-top: 156px; }
+
+  .panel {
+    padding: clamp(36px, 6vw, 72px);
+    border-radius: 36px;
+    background:
+      radial-gradient(600px 240px at 90% 0%, rgba(122, 197, 187, 0.42), transparent 60%),
+      var(--ink);
+    color: #fff;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 0 auto;
+    max-width: 16ch;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -0.03em;
+  }
+
+  .panel p {
+    margin: 14px auto 28px;
+    max-width: 38rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .footer { padding: 18px 0 40px; }
+
+  .foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--ink);
+    font-size: 0.9rem;
+  }
+
+</style>

@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Capabilities from "../components/Capabilities.astro";
+import Work from "../components/Work.astro";
+import Close from "../components/Close.astro";
+
+const description =
+  "geodesAic bridges business vision and automated execution. Human-led direction meets AI-driven performance.";
+---
+<Base title="geodesAic — Human Strategy, AI Speed." description={description}>
+  <Header />
+  <main>
+    <Hero />
+    <Capabilities />
+    <Work />
+    <Close />
+  </main>
+</Base>

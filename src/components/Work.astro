@@ -1,0 +1,39 @@
+---
+import { work } from "../data/work";
+import CaseStudy from "./CaseStudy.astro";
+---
+<section class="work" id="work">
+  <div class="wrap intro">
+    <p class="eyebrow">Work</p>
+    <h2>Shipped products, not decks.</h2>
+  </div>
+  {work.map((study, index) => (
+    <CaseStudy study={study} reverse={index % 2 === 1} />
+  ))}
+</section>
+
+<style>
+  .work {
+    padding: 48px 0 8px;
+    scroll-margin-top: 156px;
+  }
+
+  .intro { margin-bottom: 8px; }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--gem-deep);
+    font: 800 12px/1 var(--sans);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 10px 0 0;
+    max-width: 14ch;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+</style>
